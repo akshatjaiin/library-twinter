@@ -43,42 +43,44 @@ class LibraryApp:
         self.library = Library()
         self.root = root
         self.root.title("Library Management System")
+        self.root.geometry("800x600")
+        self.root.config(bg="#f0f0f0")
 
         # Frames
-        self.add_book_frame = tk.Frame(root)
-        self.add_book_frame.pack(pady=10)
+        self.add_book_frame = tk.Frame(root, bg="#f0f0f0")
+        self.add_book_frame.pack(pady=20)
 
-        self.view_books_frame = tk.Frame(root)
-        self.view_books_frame.pack(pady=10)
+        self.view_books_frame = tk.Frame(root, bg="#f0f0f0")
+        self.view_books_frame.pack(pady=20)
 
         # Add Book Frame
-        tk.Label(self.add_book_frame, text="Add Book").grid(row=0, column=0, columnspan=2)
-        tk.Label(self.add_book_frame, text="Title:").grid(row=1, column=0)
-        self.title_entry = tk.Entry(self.add_book_frame)
+        tk.Label(self.add_book_frame, text="Add Book", font=("Arial", 18), bg="#f0f0f0").grid(row=0, column=0, columnspan=2)
+        tk.Label(self.add_book_frame, text="Title:", font=("Arial", 14), bg="#f0f0f0").grid(row=1, column=0)
+        self.title_entry = tk.Entry(self.add_book_frame, font=("Arial", 14), width=30)
         self.title_entry.grid(row=1, column=1)
 
-        tk.Label(self.add_book_frame, text="Author:").grid(row=2, column=0)
-        self.author_entry = tk.Entry(self.add_book_frame)
+        tk.Label(self.add_book_frame, text="Author:", font=("Arial", 14), bg="#f0f0f0").grid(row=2, column=0)
+        self.author_entry = tk.Entry(self.add_book_frame, font=("Arial", 14), width=30)
         self.author_entry.grid(row=2, column=1)
 
-        tk.Button(self.add_book_frame, text="Add Book", command=self.add_book).grid(row=3, column=0, columnspan=2)
+        tk.Button(self.add_book_frame, text="Add Book", command=self.add_book, font=("Arial", 14), bg="#4CAF50", fg="#fff").grid(row=3, column=0, columnspan=2)
 
         # View Books Frame
-        tk.Label(self.view_books_frame, text="View Books").grid(row=0, column=0, columnspan=3)
+        tk.Label(self.view_books_frame, text="View Books", font=("Arial", 18), bg="#f0f0f0").grid(row=0, column=0, columnspan=3)
 
-        tk.Button(self.view_books_frame, text="View Books", command=self.view_books).grid(row=1, column=0, columnspan=3)
+        tk.Button(self.view_books_frame, text="View Books", command=self.view_books, font=("Arial", 14), bg="#4CAF50", fg="#fff").grid(row=1, column=0, columnspan=3)
 
-        self.books_listbox = tk.Listbox(self.view_books_frame, width=50)
+        self.books_listbox = tk.Listbox(self.view_books_frame, font=("Arial", 14), width=50)
         self.books_listbox.grid(row=2, column=0, columnspan=3)
 
-        tk.Label(self.view_books_frame, text="Borrow/Return Book").grid(row=3, column=0, columnspan=3)
+        tk.Label(self.view_books_frame, text="Borrow/Return Book", font=("Arial", 18), bg="#f0f0f0").grid(row=3, column=0, columnspan=3)
 
-        tk.Label(self.view_books_frame, text="Title:").grid(row=4, column=0)
-        self.borrow_title_entry = tk.Entry(self.view_books_frame)
+        tk.Label(self.view_books_frame, text="Title:", font=("Arial", 14), bg="#f0f0f0").grid(row=4, column=0)
+        self.borrow_title_entry = tk.Entry(self.view_books_frame, font=("Arial", 14), width=30)
         self.borrow_title_entry.grid(row=4, column=1)
 
-        tk.Button(self.view_books_frame, text="Borrow Book", command=self.borrow_book).grid(row=5, column=0)
-        tk.Button(self.view_books_frame, text="Return Book", command=self.return_book).grid(row=5, column=1)
+        tk.Button(self.view_books_frame, text="Borrow Book", command=self.borrow_book, font=("Arial", 14), bg="#4CAF50", fg="#fff").grid(row=5, column=0)
+        tk.Button(self.view_books_frame, text="Return Book", command=self.return_book, font=("Arial", 14), bg="#4CAF50", fg="#fff").grid(row=5, column=1)
 
     def add_book(self):
         title = self.title_entry.get()
