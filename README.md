@@ -22,8 +22,8 @@ Python 3.x is required to run the application.
 You can download Python here.
 Run the application:
 
-bash
-Copy code
+![image](https://github.com/user-attachments/assets/eeb7834a-193e-4c21-be0b-2e3849108768)
+
 python library_management_system.py
 🖥️ Usage
 Add a Book:
